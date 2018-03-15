@@ -15,8 +15,8 @@ var (
 )
 
 type Client struct {
-	APIKey *url.URL
-	baseURL string
+	APIKey string
+	baseURL *url.URL
 }
 
 // Method to create the task to process the recaptcha, returns the task_id
