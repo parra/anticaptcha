@@ -14,8 +14,8 @@ var (
 	sendInterval = 10 * time.Second
 )
 
-stype Client struct {
-	APIKeya string
+type Client struct {
+	APIKey string
 	baseURL string
 }
 
