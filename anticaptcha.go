@@ -10,12 +10,13 @@ import (
 )
 
 var (
-	baseURL      = &url.URL{Host: "api.anti-captcha.com", Scheme: "https", Path: "/"}
+//	baseURL      = &url.URL{Host: "api.anti-captcha.com", Scheme: "https", Path: "/"}
 	sendInterval = 10 * time.Second
 )
 
 type Client struct {
 	APIKey string
+	baseURL string
 }
 
 // Method to create the task to process the recaptcha, returns the task_id
