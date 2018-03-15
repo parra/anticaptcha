@@ -15,7 +15,7 @@ var (
 )
 
 type Client struct {
-	APIKey url
+	APIKey URL
 	baseURL string
 }
 
