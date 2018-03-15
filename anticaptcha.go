@@ -16,7 +16,7 @@ var (
 
 type Client struct {
 	APIKey string
-	baseURL *url.URL
+	Url *url.URL
 }
 
 // Method to create the task to process the recaptcha, returns the task_id
@@ -37,7 +37,7 @@ func (c *Client) createTaskRecaptcha(websiteURL string, recaptchaKey string) flo
 	}
 
 	// Make the request
-	u := c.baseURL.ResolveReference(&url.URL{Path: "/createTask"})
+	u := c.Url.ResolveReference(&url.URL{Path: "/createTask"})
 	resp, err := http.Post(u.String(), "application/json", bytes.NewBuffer(b))
 	if err != nil {
 		log.Fatal(err)
@@ -64,7 +64,7 @@ func (c *Client) getTaskResult(taskID float64) map[string]interface{} {
 	}
 
 	// Make the request
-	u := c.baseURL.ResolveReference(&url.URL{Path: "/getTaskResult"})
+	u := c.Url.ResolveReference(&url.URL{Path: "/getTaskResult"})
 	resp, err := http.Post(u.String(), "application/json", bytes.NewBuffer(b))
 	if err != nil {
 		log.Fatal(err)
@@ -116,7 +116,7 @@ func (c *Client) createTaskImage(imgString string) float64 {
 	}
 
 	// Make the request
-	u := c.baseURL.ResolveReference(&url.URL{Path: "/createTask"})
+	u := c.Url.ResolveReference(&url.URL{Path: "/createTask"})
 	resp, err := http.Post(u.String(), "application/json", bytes.NewBuffer(b))
 	if err != nil {
 		log.Fatal(err)
